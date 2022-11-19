@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Duolingo - English",
+    "startDate": "2022-04-13",
+    "total": 957,
+    "step": 9,
+    "milestones": [
+      {
+        "date": "2022-08-25",
+        "value": 957
+      }
+    ]
+  },
+  {
+    "title": "Essential Grammar In Use",
+    "startDate": "2022-10-16",
+    "total": 115,
+    "step": 1,
+    "milestones": [
+      {
+        "date": "2022-11-17",
+        "value": 45
+      },
+      {
+        "date": "2022-11-26",
+        "value": 56
+      }
+    ]
+  },
+  {
+    "title": "English Grammar In Use",
+    "startDate": "2023-02-01",
+    "total": 145,
+    "step": 1,
+    "milestones": [
+    ]
+  },
+  {
+    "title": "Advanced Grammar In Use",
+    "startDate": "2023-06-26",
+    "total": 145,
+    "step": 1,
+    "milestones": [
+    ]
+  }
+]

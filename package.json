@@ -1,0 +1,40 @@
+{
+  "name": "carving",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "luxon": "^3.1.1",
+    "vue": "^3.2.41"
+  },
+  "devDependencies": {
+    "@types/luxon": "^3.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.29.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.5.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-vue": "^9.8.0",
+    "postcss": "^8.4.19",
+    "postcss-preset-env": "^7.7.2",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3",
+    "vitepress": "1.0.0-alpha.29",
+    "vitest": "^0.25.3",
+    "vue-tsc": "^1.0.9"
+  }
+}
