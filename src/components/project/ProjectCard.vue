@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Project, ProjectStatus } from '../../lib/core'
+import { Project, ProjectStatus } from '../../model/Project'
 import CircularProgressBar from './CircularProgressBar.vue'
 
 interface Props {

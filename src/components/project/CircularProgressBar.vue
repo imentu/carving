@@ -2,14 +2,11 @@
 import { ref } from 'vue'
 
 interface Props {
-  size?: number;
   expected: number;
   actual: number;
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  size: 126
-})
+const props = defineProps<Props>()
 
 const showExpected = ref(false)
 function show () {

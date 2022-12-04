@@ -1,1 +1,1 @@
-src/data/*.json
+**/data/*.json

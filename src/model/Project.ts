@@ -1,4 +1,4 @@
-import { match } from 'assert'
+import projectsJson from './data/projects.json'
 import { DateTime, Interval } from 'luxon'
 
 export enum ProjectStatus {
@@ -32,6 +32,10 @@ export class Project {
     this.mileStones = []
   }
 
+  public addMileStone (dateTime: DateTime, value: number): void {
+    this.mileStones = [...this.mileStones, new MileStone(dateTime, value)].sort((a, b) => a.date > b.date ? 1 : -1)
+  }
+
   public get start (): string {
     return this.format(this.startDate)
   }
@@ -42,12 +46,11 @@ export class Project {
 
   public get estimatedDateTime (): DateTime {
     const remain = this.total - this.current
-    const remainDays = remain / this.step
 
     const now = DateTime.now()
     const startDate = now < this.startDate ? this.startDate : now
-    const estimated = startDate.plus({ days: remainDays })
-    return estimated
+
+    return this.calculateEstimated(remain, startDate)
   }
 
   public get doneDate (): string {
@@ -60,15 +63,15 @@ export class Project {
     }
 
     const mileston = this.mileStones[this.mileStones.length - 1]
-    const remain = this.total - mileston.value
-    const remainDays = remain / this.step
-
-    const estimated = mileston.date.plus({ days: remainDays })
-    return estimated
+    return this.calculateEstimated(this.total - mileston.value, mileston.date)
   }
 
   format (dateTime: DateTime): string {
     return dateTime.toLocaleString(DateTime.DATE_SHORT)
+  }
+
+  calculateEstimated (remain: number, startDate: DateTime): DateTime {
+    return startDate.plus({ days: remain / this.step })
   }
 
   public get expectedProgress (): number {
@@ -116,10 +119,6 @@ export class Project {
     return Math.floor(interval.length('day'))
   }
 
-  public addMileStone (dateTime: DateTime, value: number): void {
-    this.mileStones = [...this.mileStones, new MileStone(dateTime, value)].sort((a, b) => a.date > b.date ? 1 : -1)
-  }
-
   public get status (): ProjectStatus {
     if (this.current >= this.total) {
       return ProjectStatus.Done
@@ -132,4 +131,32 @@ export class Project {
 }
 
 export default {
+  data: loadData()
+}
+
+function loadData (): { todo: Project[], doing: Project[], done: Project[] } {
+  const projects = loadProjectsFromJson()
+  return {
+    todo: filterProjectsByStatus(projects, ProjectStatus.Todo),
+    doing: filterProjectsByStatus(projects, ProjectStatus.Doing),
+    done: filterProjectsByStatus(projects, ProjectStatus.Done)
+  }
+
+  function loadProjectsFromJson (): Project[] {
+    return projectsJson.map(projectJson => {
+      const result = new Project(projectJson.title, parseDate(projectJson.startDate), projectJson.total, projectJson.step)
+      for (const mileStone of projectJson.milestones) {
+        result.addMileStone(parseDate(mileStone.date), mileStone.value)
+      }
+      return result
+    })
+
+    function parseDate (str: string): DateTime {
+      return DateTime.fromFormat(str, 'yyyy-LL-dd')
+    }
+  }
+
+  function filterProjectsByStatus (projects: Project[], status: ProjectStatus): Project[] {
+    return projects.filter(project => project.status === status)
+  }
 }

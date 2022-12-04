@@ -1,6 +1,6 @@
 import { beforeAll, describe, expect, it, vi } from 'vitest'
 import { DateTime } from 'luxon'
-import { Project, ProjectStatus } from '../core'
+import { Project, ProjectStatus } from '../Project'
 
 describe('project model tests', () => {
   describe(('calculated properties'), () => {
