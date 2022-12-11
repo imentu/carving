@@ -24,6 +24,10 @@
       {
         "date": "2022-11-26",
         "value": 56
+      },
+      {
+        "date": "2022-12-11",
+        "value": 75
       }
     ]
   },
@@ -32,15 +36,13 @@
     "startDate": "2023-02-01",
     "total": 145,
     "step": 1,
-    "milestones": [
-    ]
+    "milestones": []
   },
   {
     "title": "Advanced Grammar In Use",
     "startDate": "2023-06-26",
     "total": 145,
     "step": 1,
-    "milestones": [
-    ]
+    "milestones": []
   }
 ]
