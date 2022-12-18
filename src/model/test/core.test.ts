@@ -44,6 +44,15 @@ describe('project model tests', () => {
 
         expect(project.current).eq(3)
       })
+
+      it('current should equal to step at the first day', () => {
+        const date = new Date('2022-12-18')
+        vi.setSystemTime(date)
+
+        const project = new Project('Words - IELTS', DateTime.local(2022, 12, 18), 3837, 20)
+
+        expect(project.current).eq(20)
+      })
     })
 
     describe('status', () => {

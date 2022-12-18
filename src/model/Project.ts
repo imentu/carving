@@ -80,7 +80,7 @@ export class Project {
 
   public get expected (): number {
     const now = DateTime.now()
-    const days = now < this.startDate ? 0 : this.daysOf(this.startDate, now)
+    const days = now < this.startDate ? 0 : this.daysOf(this.startDate, now) + 1
     return Math.min(days * this.step, this.total)
   }
 
