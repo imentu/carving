@@ -45,7 +45,7 @@ function hidden () {
         />
       </template>
       <template v-else>
-        <template v-if="props.actual > props.expected">
+        <template v-if="props.actual >= props.expected">
           <circle
             r="45"
             cx="50"
