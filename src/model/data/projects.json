@@ -28,6 +28,10 @@
       {
         "date": "2022-12-11",
         "value": 75
+      },
+      {
+        "date": "2022-12-31",
+        "value": 92
       }
     ]
   },
@@ -36,20 +40,23 @@
     "startDate": "2022-12-17",
     "total": 145,
     "step": 1,
-    "milestones": []
-  },
-  {
-    "title": "Advanced Grammar In Use",
-    "startDate": "2023-02-01",
-    "total": 145,
-    "step": 1,
-    "milestones": []
+    "milestones": [
+      {
+        "date": "2022-12-31",
+        "value": 11
+      }
+    ]
   },
   {
     "title": "Words - IELTS",
     "startDate": "2022-12-18",
     "total": 3837,
     "step": 20,
-    "milestones": []
+    "milestones": [
+      {
+        "date": "2022-12-31",
+        "value": 220
+      }
+    ]
   }
 ]
